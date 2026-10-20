@@ -1,7 +1,9 @@
 import { type RequestState } from "./types";
 import { type Pokemon } from "./types";
+import { type ApiError } from "./types";
+import { describeError } from "./describeError";
 
-export function describeState(state: RequestState<Pokemon, string>): string {
+export function describeState(state: RequestState<Pokemon, ApiError>): string {
   switch (state.status) {
     case "idle":
       return "actualmente idle";
@@ -13,7 +15,7 @@ export function describeState(state: RequestState<Pokemon, string>): string {
       return state.data.name;
 
     case "error":
-      return state.error;
+      return describeError(state.error);
 
     default:
       const pred: never = state;
