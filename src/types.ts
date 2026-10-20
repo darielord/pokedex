@@ -10,6 +10,11 @@ export type Pokemon = {
   }[];
 };
 
+export type ApiError =
+  | { readonly kind: "network" }
+  | { readonly kind: "http"; readonly http: number }
+  | { readonly kind: "invalid-data"; readonly invalid: string };
+
 const charizard: Pokemon = {
   id: 6,
   name: "charizard",
