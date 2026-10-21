@@ -12,8 +12,12 @@ export type Pokemon = {
 
 export type ApiError =
   | { readonly kind: "network" }
-  | { readonly kind: "http"; readonly http: number }
-  | { readonly kind: "invalid-data"; readonly invalid: string };
+  | { readonly kind: "http"; readonly status: number }
+  | { readonly kind: "invalid-data"; readonly message: string };
+
+export type Result<T, E> =
+  | { readonly ok: true; readonly data: T }
+  | { readonly ok: false; readonly error: E };
 
 const charizard: Pokemon = {
   id: 6,
