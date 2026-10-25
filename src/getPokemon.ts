@@ -9,8 +9,9 @@ import { type Pokemon } from "./types";
 
 export async function getPokemon(
   name: string,
+  signal: AbortSignal,
 ): Promise<Result<Pokemon, ApiError>> {
-  const response = await fetchPokemon(name);
+  const response = await fetchPokemon(name, signal);
 
   if (!response.ok) {
     return response;
