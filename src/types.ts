@@ -51,5 +51,5 @@ export type PokemonListItem = {
 };
 
 export type PokemonList = {
-  readonly results: PokemonList[];
+  readonly results: readonly PokemonListItem[];
 };
