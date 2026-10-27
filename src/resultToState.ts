@@ -1,12 +1,8 @@
-import { type ApiError, type Pokemon } from "./types";
-
 import { type RequestState } from "./types";
 
 import { type Result } from "./types";
 
-export function resultToState(
-  result: Result<Pokemon, ApiError>,
-): RequestState<Pokemon, ApiError> {
+export function resultToState<T, E>(result: Result<T, E>): RequestState<T, E> {
   if (result.ok) {
     return {
       data: result.data,
