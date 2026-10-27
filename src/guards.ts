@@ -2,6 +2,8 @@ import { type Pokemon } from "./types";
 
 import { type PokemonListItem } from "./types";
 
+import { type PokemonList } from "./types";
+
 export function isPokemon(value: unknown): value is Pokemon {
   return (
     typeof value === "object" &&
@@ -26,5 +28,15 @@ export function isPokemonListItem(value: unknown): value is PokemonListItem {
     "url" in value &&
     typeof value.name === "string" &&
     typeof value.url === "string"
+  );
+}
+
+export function isPokemonList(value: unknown): value is PokemonList {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    "results" in value &&
+    Array.isArray(value.results) &&
+    value.results.every(isPokemonListItem)
   );
 }
