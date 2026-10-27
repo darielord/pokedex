@@ -1,7 +1,13 @@
 import { PokemonViewer } from "./PokemonViewer";
+import { PokemonGrid } from "./PokemonGrid";
 
 function App() {
-  return <PokemonViewer />;
+  return (
+    <div className="app">
+      {" "}
+      <PokemonViewer /> <PokemonGrid />{" "}
+    </div>
+  );
 }
 
 export default App;

@@ -16,7 +16,7 @@ export function PokemonGrid() {
       return state.data.results.length === 0 ? (
         <p> {"Vacio"} </p>
       ) : (
-        <div>
+        <div className="PokemonGrid">
           {" "}
           {state.data.results.map((item) => {
             return <PokemonItem name={item.name} key={item.name} />;
