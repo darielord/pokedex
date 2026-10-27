@@ -6,9 +6,9 @@ export async function fetchPokemon(
   signal: AbortSignal,
 ): Promise<Result<unknown, ApiError>> {
   try {
-    const response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${name},   `${signal},
-    );
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`, {
+      signal,
+    });
 
     if (!response.ok) {
       return { ok: false, error: { kind: "http", status: response.status } };
