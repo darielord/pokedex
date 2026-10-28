@@ -25,16 +25,16 @@ export function usePokemon(name: string): RequestState<Pokemon, ApiError> {
 
     setState({ status: "loading" });
 
-    let cancelled = false;
+    const abort = new AbortController();
 
-    getPokemon(name).then((Result) => {
-      if (!cancelled) {
+    getPokemon(name, abort.signal).then((Result) => {
+      if (!abort.signal.aborted) {
         setState(resultToState(Result));
       }
     });
 
     return () => {
-      cancelled = true;
+      abort.abort();
     };
   }, [name]);
 
