@@ -1,32 +1,35 @@
-# React + TypeScript + Vite
+# Pokédex
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A Pokédex built with React and strict TypeScript, using the PokéAPI.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Search any Pokémon by name and see its sprite and types.
+- Browse a grid of 20 Pokémon.
+- Clear loading and error states, with a specific message for each kind of error (no connection, HTTP error, invalid data).
 
-## React Compiler
+## Tech stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- TypeScript (strict mode)
+- Vite
+- PokéAPI
 
-## Expanding the Oxlint configuration
+## What I practiced
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+- Discriminated unions to model request states (`RequestState`), API errors (`ApiError`) and results (`Result<T, E>`).
+- Type guards with `unknown` to validate external JSON at runtime, with no `any` and no `as`.
+- Exhaustive rendering with the `never` pattern, so a missing state is a compile error.
+- Custom hooks with `useEffect` and `AbortController` to cancel stale requests.
+- Generic functions and component props typing.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Getting started
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Live demo
+
+Coming soon.
