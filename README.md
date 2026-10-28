@@ -32,4 +32,4 @@ npm run dev
 
 ## Live demo
 
-Coming soon.
+https://dariel-pokedex.netlify.app/
