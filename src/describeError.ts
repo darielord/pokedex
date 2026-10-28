@@ -11,6 +11,6 @@ export function describeError(api: ApiError): string {
 
     default:
       const pred: never = api;
-      throw new Error("Tipo no valido");
+      throw new Error(`Tipo no valido ${pred}`);
   }
 }

@@ -19,6 +19,6 @@ export function describeState(state: RequestState<Pokemon, ApiError>): string {
 
     default:
       const pred: never = state;
-      throw new Error("Estado desconocido");
+      throw new Error(`Estado desconocido ${pred}`);
   }
 }

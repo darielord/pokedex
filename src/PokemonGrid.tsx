@@ -29,6 +29,6 @@ export function PokemonGrid() {
 
     default:
       const pred: never = state;
-      throw new Error("Estado desconocido");
+      throw new Error(`Estado desconocido ${pred}`);
   }
 }

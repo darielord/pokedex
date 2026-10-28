@@ -19,26 +19,6 @@ export type Result<T, E> =
   | { readonly ok: true; readonly data: T }
   | { readonly ok: false; readonly error: E };
 
-const charizard: Pokemon = {
-  id: 6,
-  name: "charizard",
-  sprites: { front_default: "texto" },
-  types: [
-    {
-      slot: 1,
-      type: {
-        name: "fire",
-      },
-    },
-    {
-      slot: 2,
-      type: {
-        name: "flying",
-      },
-    },
-  ],
-};
-
 export type RequestState<T, E> =
   | { readonly status: "idle" }
   | { readonly status: "loading" }
